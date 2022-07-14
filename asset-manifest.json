@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/boycany/ooxx-game/static/css/main.7e951148.css",
-    "main.js": "/boycany/ooxx-game/static/js/main.cbb9c1bd.js",
-    "index.html": "/boycany/ooxx-game/index.html",
-    "main.7e951148.css.map": "/boycany/ooxx-game/static/css/main.7e951148.css.map",
-    "main.cbb9c1bd.js.map": "/boycany/ooxx-game/static/js/main.cbb9c1bd.js.map"
+    "main.css": "/ooxx-game/static/css/main.7e951148.css",
+    "main.js": "/ooxx-game/static/js/main.cbb9c1bd.js",
+    "index.html": "/ooxx-game/index.html",
+    "main.7e951148.css.map": "/ooxx-game/static/css/main.7e951148.css.map",
+    "main.cbb9c1bd.js.map": "/ooxx-game/static/js/main.cbb9c1bd.js.map"
   },
   "entrypoints": [
     "static/css/main.7e951148.css",
