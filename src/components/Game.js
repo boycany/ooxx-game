@@ -35,6 +35,7 @@ class Game extends React.Component {
       ],
       stepNumber: 0,
       xIsNext: true,
+  
     };
   }
 
@@ -68,27 +69,36 @@ class Game extends React.Component {
   jumpTo(step){
     this.setState({
       stepNumber: step,
-      xIsNext: (step % 2) === 0
+      xIsNext: (step % 2) === 0,
+    
     })
+   
   }
 
   render() {
+    // console.log('this.state :>> ', this.state);
+
     const history = this.state.history;
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
 
     const moves = history.map((step, move)=>{
-      console.log('step :>> ', step);
+      // console.log('step :>> ', step);
       const desc = move ? "Go to move #" + move : "Go to game start"
+
       return (
         // 歷史紀錄的索引值並不會被重新排序、刪除或插入，所以可以直接當作 key 值
         <li key={move}>
-          <button onClick={()=> this.jumpTo(move)}>{desc}</button>
+          <button 
+            onClick={()=> this.jumpTo(move)} 
+            style={ this.state.stepNumber === move ? {  backgroundColor: "palegreen" }: {}}
+          >
+            {desc}
+          </button>
         </li>
       )
     })
-
-
+   
     let status;
     if (winner) {
       status = "Winner: " + winner;
