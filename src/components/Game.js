@@ -17,8 +17,13 @@ function calculateWinner(squares) {
     // console.log("squares[a] :>> ", squares[a]);
     // console.log("squares[b] :>> ", squares[b]);
     // console.log("squares[c] :>> ", squares[c]);
+    
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a];
+      // console.log(lines[i])
+      return {
+        winner: squares[a],
+        lines: lines[i]
+      };
     }
   }
   return null;
@@ -31,6 +36,10 @@ class Game extends React.Component {
       history: [
         {
           squares: Array(9).fill(null),
+          coordinate: {
+            x: 0,
+            y: 0
+          }
         },
       ],
       stepNumber: 0,
@@ -46,19 +55,29 @@ class Game extends React.Component {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     
     const current = history[history.length - 1];
+
+    //準備塞入新的陣列
     const squares = current.squares.slice();
+
+    //計算座標
+    const x = i % 3 + 1
+    const y = Math.floor(i / 3) + 1
 
     //如果勝負已經揭曉，或者某一格已被填入X或O，就忽略這次點擊
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
-
-    // console.log("squares :>> ", squares);
+    
     squares[i] = this.state.xIsNext ? "X" : "O";
+
     this.setState({
       history: history.concat([
         {
           squares: squares,
+          coordinate: {
+            x: x,
+            y: y
+          }
         },
       ]),
       stepNumber: history.length,
@@ -82,9 +101,11 @@ class Game extends React.Component {
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
 
+    // 渲染出歷史紀錄
     const moves = history.map((step, move)=>{
       // console.log('step :>> ', step);
       const desc = move ? "Go to move #" + move : "Go to game start"
+      const { x, y } =  this.state.history[move].coordinate;
 
       return (
         // 歷史紀錄的索引值並不會被重新排序、刪除或插入，所以可以直接當作 key 值
@@ -95,27 +116,40 @@ class Game extends React.Component {
           >
             {desc}
           </button>
+          
+          <span>
+            { "(" + x + "," + y + ")"}
+          </span>
         </li>
       )
     })
-   
+
+    //確認是否有贏家
+    let lines;
     let status;
     if (winner) {
-      status = "Winner: " + winner;
+      status = "Winner: " + winner.winner;
+      lines = winner.lines
+    } else if (!current.squares.includes(null)){
+      status = "This game ended in a tie."
     } else {
       status = "Next player: " + (this.state.xIsNext ? "X" : "O");
     }
 
+    // console.log('winner :>> ', winner);
+    // console.log('lines :>> ', lines);
+    
     return (
       <div className="game">
         <div className="game-board">
           <Board
             onClick={(i) => this.handleClick(i)}
             squares={current.squares}
+            lines={lines}
           />
         </div>
         <div className="game-info">
-          <div>{status}</div>
+          <div className="result">{status}</div>
           <ul>{moves}</ul>
         </div>
       </div>

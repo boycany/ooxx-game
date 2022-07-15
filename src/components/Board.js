@@ -3,11 +3,13 @@ import React from "react";
 
 class Board extends React.Component {
   renderSquare(i) {
+    const { lines, squares, onClick } = this.props
     return (
       <Square
-        value={this.props.squares[i]}
-        onClick={() => this.props.onClick(i)}
+        value={squares[i]}
+        onClick={() => onClick(i)}
         key={i}
+        win={lines && lines.includes(i) ? { backgroundColor: "yellow" } : {}}
       />
     );
   }

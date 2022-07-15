@@ -7,11 +7,17 @@ body {
 li {
   padding-top: 10px;
   list-style-type: none;
-  transform: translateX(-15%);
+  /* transform: translateX(-15%); */
 }
 
 li button{
-  width: 120px
+  width: 120px;
+  margin-right: 15px;
+}
+
+li span{
+  /* font-weight: 600;  */
+  letter-spacing: 1px;
 }
 
 .active{
@@ -65,4 +71,11 @@ li button{
   align-items: center;
   justify-content: center;
   margin-top: 20px;
+}
+
+.result{
+  font-size: 0.95rem;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: plum;
 }
