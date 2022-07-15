@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/ooxx-game/static/css/main.dd3ace94.css",
-    "main.js": "/ooxx-game/static/js/main.3971ec43.js",
+    "main.css": "/ooxx-game/static/css/main.0120781a.css",
+    "main.js": "/ooxx-game/static/js/main.bf8a4596.js",
     "index.html": "/ooxx-game/index.html",
-    "main.dd3ace94.css.map": "/ooxx-game/static/css/main.dd3ace94.css.map",
-    "main.3971ec43.js.map": "/ooxx-game/static/js/main.3971ec43.js.map"
+    "main.0120781a.css.map": "/ooxx-game/static/css/main.0120781a.css.map",
+    "main.bf8a4596.js.map": "/ooxx-game/static/js/main.bf8a4596.js.map"
   },
   "entrypoints": [
-    "static/css/main.dd3ace94.css",
-    "static/js/main.3971ec43.js"
+    "static/css/main.0120781a.css",
+    "static/js/main.bf8a4596.js"
   ]
 }
