@@ -7,11 +7,11 @@ body {
 li {
   padding-top: 10px;
   list-style-type: none;
-  /* transform: translateX(-15%); */
+  transform: translateX(-5%);
 }
 
 li button{
-  width: 120px;
+  width: 200px;
   margin-right: 15px;
 
   background-color: #fff;
@@ -51,8 +51,9 @@ li button.step-now{
   background-color: palegreen;
 }
 
-li span{
+li button span{
   /* font-weight: 600;  */
+  margin-left: 6px;
   letter-spacing: 1px;
 }
 

@@ -104,7 +104,7 @@ class Game extends React.Component {
     // 渲染出歷史紀錄
     const moves = history.map((step, move)=>{
       // console.log('step :>> ', step);
-      const desc = move ? "Go to move #" + move : "Go to game start"
+      const desc = move ? "Go to move # " + move + " ": "Go to game start"
       const { x, y } =  this.state.history[move].coordinate;
 
       return (
@@ -115,11 +115,11 @@ class Game extends React.Component {
             className={ this.state.stepNumber === move ? "step-now": ""}
           >
             {desc}
-          </button>
-          
-          <span>
+            <span>
             { "(" + x + "," + y + ")"}
-          </span>
+            </span>
+          </button> 
+
         </li>
       )
     })
